@@ -13,3 +13,12 @@ function getComputerChoice() {
   else choice = "Scissors";
   return choice;
 }
+
+/**
+ * Get the choice of user from prompt message
+ */
+function getHumanChoice(){
+    let choice = prompt('Enter your choice from list \n [Rock, Paper, Scissors].')
+    // console.log(typeof choice, choice);
+    return choice;
+}
