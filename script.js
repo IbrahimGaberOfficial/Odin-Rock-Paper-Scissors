@@ -48,25 +48,25 @@ function playRound(humanChoice = "", computerChoice = "") {
  * calls playRound to play 5 rounds,
  * keeps track of the scores and declares a winner at the end.
  */
-function playGame() {
-  let result;
-  for (let i = 1; i <= 5; i++) {
-    result = playRound(getHumanChoice(), getComputerChoice());
-    if (result == "human") {
-      alert("you win this round!.");
-      humandScore += 1;
-    } else if (result == "computer") {
-      alert("computer win this round!.");
-      computerScore += 1;
-    } else {
-      alert("It is a tie!.");
-    }
-  }
-  if (humandScore > computerScore) alert("you are the winner of the game!!.");
-  else alert("Computer is the winner of the game!!.");
+// function playGame() {
+//   let result;
+//   for (let i = 1; i <= 5; i++) {
+//     result = playRound(getHumanChoice(), getComputerChoice());
+//     if (result == "human") {
+//       alert("you win this round!.");
+//       humandScore += 1;
+//     } else if (result == "computer") {
+//       alert("computer win this round!.");
+//       computerScore += 1;
+//     } else {
+//       alert("It is a tie!.");
+//     }
+//   }
+//   if (humandScore > computerScore) alert("you are the winner of the game!!.");
+//   else alert("Computer is the winner of the game!!.");
 
-  humandScore = computerScore = 0;
-}
+//   humandScore = computerScore = 0;
+// }
 
 let humandScore = 0,
   computerScore = 0;
