@@ -18,14 +18,14 @@ function getComputerChoice() {
 /**
  * Get the choice of user from prompt message
  */
-function getHumanChoice() {
-  let choice = prompt(
-    "Enter your choice from list \n [Rock, Paper, Scissors]."
-  );
-  // console.log(typeof choice, choice);
-  console.log("human choiced ", choice);
-  return choice.toLocaleLowerCase();
-}
+// function getHumanChoice() {
+//   let choice = prompt(
+//     "Enter your choice from list \n [Rock, Paper, Scissors]."
+//   );
+//   // console.log(typeof choice, choice);
+//   console.log("human choiced ", choice);
+//   return choice.toLocaleLowerCase();
+// }
 
 /**
  * get humand and computer choices as parameters
@@ -123,7 +123,7 @@ btnsContainer.addEventListener("click", (event) => {
 
   humanScoreValue.textContent = humanScore;
   computerScoreValue.textContent = computerScore;
-  
+
   if (computerScore >= 5) {
     announceWinner("Computer");
     return;
