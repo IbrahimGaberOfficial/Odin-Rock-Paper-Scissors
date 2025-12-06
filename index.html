@@ -6,25 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Odin Project Rock Paper Scissors</title>
     <style>
-        body{
+        body {
             min-height: 100vh;
+        }
+
+        #btns-container {
+            margin: 50px 0px 50px 0px;
             display: flex;
             justify-content: center;
             align-items: center;
-
         }
-        #start-btn{
-            font-size: 100px;
-            font-weight: bold;
-            padding: 10px 0px;
-            display: block;
-            /* margin: auto auto; */
+
+        #score-container {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+        
+        #result-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .result {
+            margin-left: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 5px;
         }
     </style>
 </head>
 
 <body>
-    <button id="start-btn" >Start a game</button>
+    <div id="score-container">
+        <h3>Scores</h3>
+        <div id="human-score" class="result">
+            Human score : <span id="human-score-value">0</span>
+        </div>
+        <div id="computer-score" class="result">
+            Computer score : <span id="computer-score-value">0</span>
+        </div>
+    </div>
+
+    <div id="result-container">
+        <div id="choises"></div>
+        <br/> 
+        <div id="round-result"></div>
+        <br/>
+        <h2 id="final-result"></h2>
+    </div>
+    <div id="btns-container">
+        <button id="rock"> Rock</button>
+        <button id="paper"> Paper</button>
+        <button id="scissors"> scissors</button>
+    </div>
+
     <script src="./script.js"></script>
 </body>
 

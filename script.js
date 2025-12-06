@@ -33,7 +33,7 @@ function getHumanChoice() {
  */
 function playRound(humanChoice = "", computerChoice = "") {
   // check for similar choices
-  alert(`you choiced ${humanChoice}, computer choiced ${computerChoice}`);
+  // alert(`you choiced ${humanChoice}, computer choiced ${computerChoice}`);
   if (humanChoice === computerChoice) return "it's a tie";
   else if (
     (humanChoice == "rock" && computerChoice == "scissors") ||
@@ -68,9 +68,67 @@ function playRound(humanChoice = "", computerChoice = "") {
 //   humandScore = computerScore = 0;
 // }
 
-let humandScore = 0,
+let humanScore = 0,
   computerScore = 0;
 
-const startBtn = document.getElementById("start-btn");
-// guessSubmit.addEventListener("click", checkGuess);
-startBtn.addEventListener("click", playGame);
+// const startBtn = document.getElementById("start-btn");
+// // guessSubmit.addEventListener("click", checkGuess);
+// startBtn.addEventListener("click", playGame);
+
+let rock = document.querySelector("#rock");
+let paper = document.querySelector("#paper");
+let scissors = document.querySelector("#scissors");
+let resultContainer = document.querySelector("#result-container");
+let choises = document.querySelector("#choises");
+let reoundResult = document.querySelector("#round-result");
+
+// event delegation
+let btnsContainer = document.querySelector("#btns-container");
+
+btnsContainer.addEventListener("click", (event) => {
+
+  let humanChoice = event.target.id;
+  let computerChoice = getComputerChoice();
+  let result = playRound(humanChoice, computerChoice);
+  let message = `Your choice is: ${humanChoice} | Computer 's choice is: ${computerChoice}`;
+  let resultMessage =
+    result == "human" || result == "computer" ? "winner is " + result : result;
+  
+    choises.textContent = message;
+  reoundResult.textContent = resultMessage;
+
+  switch (result) {
+    case "computer":
+      computerScore++;
+      break;
+    case "human":
+      humanScore++;
+    default:
+      break;
+  }
+
+  let finalResult = document.querySelector("#final-result");
+  finalResult.textContent = "";
+
+  let announceWinner = function (winner) {
+    finalResult.textContent = winner + " is the winner!!.";
+    choises.textContent = "";
+    reoundResult.textContent = "";
+    humanScore = 0;
+    computerScore = 0;
+  };
+
+  let humanScoreValue = document.querySelector("#human-score-value");
+  let computerScoreValue = document.querySelector("#computer-score-value");
+
+  humanScoreValue.textContent = humanScore;
+  computerScoreValue.textContent = computerScore;
+  
+  if (computerScore >= 5) {
+    announceWinner("Computer");
+    return;
+  } else if (humanScore >= 5) {
+    announceWinner("Human");
+    return;
+  }
+});
